@@ -117,7 +117,7 @@ function touchMove(event) {
   const currentPos = event.touches[0].clientX;
   const diff = currentPos - startPos;
   const productWidth = products.children[0].offsetWidth;
-  const moveAmount = productWidth; // change this to productWidth
+  const moveAmount = productWidth / 10; // adjust the speed by changing the number
 
   if (diff > moveAmount && prevTranslate + productWidth <= 0) {
     currentTranslate = prevTranslate + productWidth;
