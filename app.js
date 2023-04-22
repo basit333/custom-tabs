@@ -39,6 +39,7 @@ function activateTab(index) {
 
 // Function to start the drag functionality
 function dragStart(event) {
+  event.preventDefault();
   if (event.type === "touchstart") {
     startPos = event.touches[0].clientX;
   } else {
@@ -53,6 +54,7 @@ function dragStart(event) {
 
 // Function to start the drag functionality
 function dragStart(event) {
+  event.preventDefault();
   if (event.type === "touchstart") {
     startPos = event.touches[0].clientX;
   } else {
@@ -75,6 +77,7 @@ function dragStart(event) {
 
 // Function to end the drag functionality
 function dragEnd(event) {
+  event.preventDefault();
   isDragging = false;
 
   // Calculate the final translate position based on the current index and product width
@@ -88,6 +91,7 @@ function dragEnd(event) {
 
 // Function to handle the drag functionality
 function drag(event) {
+  event.preventDefault();
   if (isDragging) {
     let currentPos = 0;
     if (event.type === "touchmove") {
@@ -110,10 +114,12 @@ function drag(event) {
 
 // Functions to handle the touch events
 function touchStart(event) {
+  event.preventDefault();
   startPos = event.touches[0].clientX;
 }
 
 function touchMove(event) {
+  event.preventDefault();
   const currentPos = event.touches[0].clientX;
   const diff = currentPos - startPos;
   const productWidth = products.children[0].offsetWidth;
@@ -136,7 +142,8 @@ function touchMove(event) {
   }
 }
 
-function touchEnd() {
+function touchEnd(event) {
+  event.preventDefault();
   prevTranslate = currentTranslate;
 }
 
